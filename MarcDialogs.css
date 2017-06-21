@@ -1,0 +1,101 @@
+.dialog-overlay,.dialog{visibility:hidden;opacity:0}
+.dialog-overlay.active,.dialog.active{visibility:visible;opacity:1;transition-delay:0s/* fixes fade-in/fade-out*/}
+
+.dialog-overlay{
+	transition:visibility 0s .35s, opacity .35s;
+
+	background-color:black;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";/* IE8 */
+	background-color:rgba(0,0,0,.75)
+}
+
+.dialog{
+	position:absolute;top:0;left:0; /* fix for reserved space */
+
+	transform:translateY(-15px);
+	transition:visibility 0s .35s, opacity .35s ease-in, transform .35s ease-in;
+
+	background-color:white;
+	padding:15px;
+	width:360px;
+	max-width:98%;
+	border-radius:4px;
+	line-height:1.8;
+	box-shadow: black 0 0 64px;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+@media only screen and (max-width:480px){
+	.dialog{width:auto}
+}
+.dialog.active{transform:translateY(0px)}
+
+.dialog .buttons{
+	margin-top:20px;
+	text-align:center
+}
+
+
+
+
+
+/* MarcDialogs buttons */
+.dialog button{font-family:inherit;font-size:inherit}
+
+.dialog button{
+	min-width:120px;
+	border-radius:2px;border:1px solid;border-color:#ccc #ccc #b3b3b3;
+
+	padding:6px 12px;
+	margin:0 5px;
+
+	background-color:#f0f0f0;
+	background-image:linear-gradient(to bottom, #fff, #e6e6e6);
+	text-shadow:0 -1px 0 #fff; /* ???????????????????????? */
+	text-shadow:0 1px 0 #f8f8f8;
+	color:#333;
+
+	box-shadow:0px 1px 0px rgba(255, 255, 255, 0.2) inset;
+	transition:border-color ease-in-out .15s
+}
+.dialog button:hover{
+	text-shadow:none;
+	border-color:#999999
+}
+.dialog button:active{
+	background-image:none;
+	transform:translate(0px,1px);
+	border-color:#888;
+	text-shadow:none;
+
+	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;
+	background-color:#eeeeee;
+	transform:translateY(1px)
+}
+.dialog button:focus{}
+.dialog button:disabled{opacity:.35}
+
+.dialog button.accept{
+	box-shadow:0 1px 0 rgba(120, 200, 230, 0.5) inset;
+	background-color:#21759b;
+	background-image:linear-gradient(to bottom, #2a95c5, #21759b);
+	border-color:#21759b #21759b #1e6a8d;
+	text-shadow:0 -1px 0 #20749a;
+	color:white
+}
+.dialog button.accept:hover{
+	box-shadow:0 1px 0 rgba(120, 200, 230, 0.6) inset;
+	background-color:#278ab7;
+	background-image:linear-gradient(to bottom, #2e9fd2, #21759b);
+	border-color:#1b607f;
+	text-shadow:0 -1px 0 #1b6080;
+	color:white
+}
+.dialog button.accept:active{
+	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;
+	background:linear-gradient(to bottom, #21759b, #278ab7) repeat scroll 0 0 #1b607f;
+	border-color:#124560 #0e74a3 #0e74a3;
+	text-shadow:0 -1px 0 #177ea4;
+	color:#dde7ec
+}

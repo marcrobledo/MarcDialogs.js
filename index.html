@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MarcDialogs.js</title>
+	<!-- META -->
+	<meta charset="UTF-8"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta name="description" content="MarcDialogs.js offers a simple solution to create quick and stylish modal dialogs for your site"/>
+	<meta name="keywords" content="javascript, modal, dialogs, custom, js, css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+	<!-- STYLE -->
+	<link type="text/css" rel="stylesheet" href="./MarcDialogs.css" media="all"/>
+	<!-- <link type="text/css" rel="stylesheet" href="../_libs/MarcLibs.css" media="all"/> -->
+	<style type="text/css">@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:300);.width,h4{position:relative}footer,header{text-align:center}body{font:15px 'Open Sans',sans-serif;background-color:#f8f8f4;color:#555;margin:0;line-height:1.9}h1,h2,h3,h4{font-weight:400}.width{width:1100px;margin:0 auto}br.cf{clear:both;display:block}h4,h4:before{display:inline-block}hr{border:none;border-bottom:1px dotted #aaa;margin:50px 0}#demos a,#howto a,footer a{color:#4878d2;text-decoration:none;border-bottom:1px solid #ccc;padding-bottom:2px}#demos a:hover,#howto a:hover,footer a:hover{color:#2e5aab;border-color:#999}header{background-color:#3a3a31;line-height:1;padding:30px}h1{font-size:190%;margin:0 0 20px;color:#fff}h2{font-size:100%;color:#bfbfb0;margin:0}.download-button{background-color:#86b3ef;color:#fff;border-radius:3px;text-decoration:none;padding:12px 24px;font-size:13px}.download-button.github{background-color:#1e2327}.download-button:hover{background-color:#96c3ff}.download-button.github:hover{background-color:#24292e}.download-button.github:before{display:inline-block;width:16px;height:16px;vertical-align:middle;content:"";margin-right:5px;margin-top:-2px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAA+ElEQVQoFQXBsUoUAACA4f/0PMQoipptsaEIixCC6AFc2nwGCXqHtqgIhRobo6HhagoaG1siB2lpygiSA+GMDq5u+Pq+JMkV+w7NzHz13FVJSjL02D8AsLBnJCVLxgAA4L2hkof47pkJgBP7vuGJsu4vXst5N52xZtNFeYmFjTwCY0mSJK/A03wGdyVJktwCX3KKuSVJkiSZ4nfmWBhKkiQZmGGeI3BbkiTJJviRN+CjVUmSjHwA49zDO78cuu+yZN2uA8BOBj6ZeuAPtiTXARxYTjaceOuGbQPJCuDUNSXZ8tPUkXOSETh2R0qSC/ZMnJWsmHjhkqT/X6hw6eF169kAAAAASUVORK5CYII=)}h3{margin-top:40px;margin-bottom:10px;font-size:150%}h3:first-child{margin-top:0}#howto{background-color:#ecece8;padding:20px 0;margin-bottom:30px;color:#444}#howto .mono{font-family:'Roboto Mono',monospace}#howto pre{background-color:#e4e4e0;padding:5px 10px;border-radius:3px;color:#556489;margin-top:10px}pre{overflow-x:auto;margin:0;-moz-tab-size:3;-o-tab-size:3;tab-size:3;max-height:400px;width:auto;overflow:auto;box-sizing:border-box}code{font-family:'Roboto Mono',monospace}h4{font-size:80%;text-transform:uppercase;margin:0 0 14px;padding:5px 18px;background-color:#ddd;background-repeat:no-repeat;background-position:top right;top:10px;right:8px;border-bottom:2px solid #1a1a1a;color:#000}.code-container,.result{margin-bottom:20px;border-radius:3px}.code-container pre,.result>div{line-height:1.5;padding:10px}h4:before{position:absolute;bottom:-8px;left:0;width:0;height:0;border-left:4px solid #f4f4f0;border-bottom:4px solid #f4f4f0;border-top:4px solid #bbb;border-right:4px solid #bbb;content:"";background-color:red}h4:after{display:block;content:"";clear:both}.code-container{background-color:#2a2a2a;color:#eee}.result{position:relative;background-color:#ecece8;color:#333}.result h4{background-color:#ccb;border-bottom:2px solid #dadada}.code-container .html h4{background-color:#ee5f28;color:#fff}.code-container .html h4:before{border-top:4px solid #964E34;border-right:4px solid #964E34}.code-container .js h4{background-color:#fc0}.code-container .js h4:before{border-top:4px solid #BC9600;border-right:4px solid #BC9600}.code-container .css h4{background-color:#80bfff}.code-container .css h4:before{border-top:4px solid #5C88B5;border-right:4px solid #5C88B5}.code-container pre{margin:0}.code-container .html pre{color:#ffbf88}.code-container .js pre{color:#ffffad}.code-container .css pre{color:#b0efff}footer{margin-top:60px;color:#65625d;padding:30px 0;font-size:85%}button,input,select,textarea{font-family:inherit;font-size:inherit;box-sizing:border-box}input[type=text],input[type=password],input[type=number],input[type=date],input[type=email],input[type=url],select,textarea{border-radius:3px;color:#555;border:1px solid #ccc;background-color:#fff;box-shadow:inset 0 1px 1px rgba(0,0,0,.15);padding:6px 12px;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}input[type=text].full-width,input[type=password].full-width,input[type=number].full-width,input[type=date].full-width,input[type=email].full-width,input[type=url].full-width,select.full-width,textarea.full-width{width:100%}input[type=text]:hover,input[type=password]:hover,input[type=number]:hover,input[type=date]:hover,input[type=email]:hover,input[type=url]:hover,select:hover,textarea:hover{border-color:#aaa}input[type=text]:focus,input[type=password]:focus,input[type=number]:focus,input[type=date]:focus,input[type=email]:focus,input[type=url]:focus,select:focus,textarea:focus{border-color:#66afe9!important;outline:0!important;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)!important}button,input[type=submit],input[type=button]{border-radius:2px;border:1px solid;border-color:#ccc #ccc #b3b3b3;padding:6px 12px;margin:0 5px;background-color:#f0f0f0;background-image:linear-gradient(to bottom,#fff,#e6e6e6);text-shadow:0 -1px 0 #fff;text-shadow:0 1px 0 #f8f8f8;color:#333;box-shadow:0 1px 0 rgba(255,255,255,.2) inset;transition:border-color ease-in-out .15s}button:hover,input[type=submit]:hover,input[type=button]:hover{text-shadow:none;border-color:#999}button:active,input[type=submit]:active,input[type=button]:active{background-image:none;transform:translate(0,1px);border-color:#888;text-shadow:none;box-shadow:0 2px 8px -3px rgba(0,0,0,.5) inset;background-color:#eee;transform:translateY(1px)}button.orange,input[type=submit].orange,input[type=button].orange{box-shadow:0 1px 0 #df4c45 inset;background-color:#b72319;background-image:linear-gradient(to bottom,#ce271d,#a41f17);border-color:#a41f17 #a41f17 #951d15;text-shadow:0 -1px 0 #a01d15;color:#fff}button.orange:hover,input[type=submit].orange:hover,input[type=button].orange:hover{box-shadow:0 1px 0 #e8564f inset;background-color:#bf261c;background-image:linear-gradient(to bottom,#db2c20,#a52017);border-color:#871a13;text-shadow:0 -1px 0 #8b1b14;color:#fff}button.orange:active,input[type=submit].orange:active,input[type=button].orange:active{box-shadow:0 2px 8px -3px rgba(0,0,0,.5) inset;background:linear-gradient(to bottom,#a51f17,#c1251b) #b22118;border-color:#66140c #a0150d #a0150d;text-shadow:0 -1px 0 #a41e17;color:#ecdddd}@media only screen and (max-width:1131px){body{font-size:14px}.width{width:auto;padding:12px}}@media only screen and (max-width:401px){body{font-size:13px}}</style>
+
+	<!-- JS -->
+	<script type="text/javascript" src="./MarcDialogs.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+	<div class="width">
+		<h1>MarcDialogs.js <a class="download-button github" href="https://github.com/marcrobledo/MarcDialogs.js" target="_blank">GitHub</a></h1>
+		<h2>A vanilla JavaScript library for adding quick and stylish modal dialogs to your site</h2>
+	</div>
+</header>
+
+
+<!-- HOW TO -->
+<div id="howto">
+	<div class="width">
+		<h3>Download</h3>
+		<a href="MarcDialogs.js" download>MarcDialogs.js</a> (<a href="MarcDialogs.min.js" download>~4kb minified</a>)<br/>
+		<a href="MarcDialogs.css" download>MarcDialogs.css</a>
+
+		<h3>Setup</h3>
+		Import them by adding the following lines inside <span class="mono">&lt;header&gt;</span>:
+<pre><code>&lt;script type="text/javascript" src="MarcDialogs.js"&gt;&lt;/script&gt;
+&lt;link type="text/css" rel="stylesheet" href="MarcDialogs.css" media="all"/&gt;</code></pre>
+	</div>
+</div>
+
+<!-- EXAMPLES -->
+<div class="width">
+<h3>Demos</h3>
+Build a quick alert dialog.
+<div class="code-container">
+	<div class="js"><h4>JS</h4>
+	<pre><code>MarcDialogs.alert('Custom message');</code></pre>
+	</div>
+</div>
+<div class="result">
+	<h4>Result</h4>
+	<div>Try it out: <button onclick="MarcDialogs.alert('Custom message');">Open dialog</button></div>
+</div>
+
+
+<hr/>
+Build a quick confirm dialog.
+<div class="code-container">
+	<div class="js"><h4>JS</h4>
+	<pre><code>MarcDialogs.confirm('Confirm message', function(){alert('do something here');MarcDialogs.close()});</code></pre>
+	</div>
+</div>
+<div class="result">
+	<h4>Result</h4>
+	<div>Try it out: <button onclick="MarcDialogs.confirm('Confirm message', function(){alert('do something here');MarcDialogs.close()});">Open dialog</button></div>
+</div>
+
+
+<hr/>
+Build your own custom dialog.
+<div class="code-container">
+	<div class="html"><h4>HTML</h4>
+	<pre><code>&lt;div id="dialog-custom1" class="dialog"&gt;
+	This is a custom dialog.
+	&lt;label for="login"&gt;Username&lt;/label&gt;
+	&lt;input type="text" id="login" /&gt;
+	&lt;label for="pwd"&gt;Password&lt;/label&gt;
+	&lt;input type="password" id="pwd" /&gt;
+	
+	&lt;div class="buttons"&gt;
+		&lt;button onclick="sendLoginForm()"&gt;Login&lt;/button&gt;
+		&lt;button onclick="MarcDialogs.close()"&gt;Cancel&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+	<div class="js"><h4>JS</h4>
+	<pre><code>MarcDialogs.open('custom1');</code></pre>
+	</div>
+</div>
+<div class="result">
+	<h4>Result</h4>
+	<div>Try it out: <button onclick="MarcDialogs.open('custom1');">Open dialog</button></div>
+</div>
+
+
+<div id="dialog-custom1" class="dialog" style="max-width:300px">
+	This is a custom dialog.
+	<div class="row">
+		<div class="six columns"><label for="login">Username</label></div>
+		<div class="six columns"><input type="text" id="login" class="full-width" /></div>
+	</div>
+	<div class="row">
+		<div class="six columns"><label for="pwd">Password</label></div>
+		<div class="six columns"><input type="password" id="pwd" class="full-width" /></div>
+	</div>
+
+	
+	<div class="buttons">
+		<button class="orange" onclick="sendLoginForm()">Login</button>
+		<button onclick="MarcDialogs.close()">Cancel</button>
+	</div>
+</div>
+
+
+<hr/>
+Dialogs are stacked automatically as the user opens them. Mobile browsers can use the back button to close dialogs.
+<div class="code-container">
+	<div class="html"><h4>HTML</h4>
+	<pre><code>&lt;div id="dialog-custom2" class="dialog"&gt;
+	You can stack dialogs. Try to edit tags.&lt;br/&gt;
+	&lt;label for="item"&gt;Item&lt;/label&gt;
+	&lt;input type="text" class="full-width" /&gt;
+	Tags&lt;br/&gt;
+	&lt;span id="tags"&gt;#tag1 #tag2&lt;/span&gt; &lt;span onclick="MarcDialogs.open('custom3')"&gt;Edit&lt;/span&gt;
+	
+	&lt;div class="buttons"&gt;
+		&lt;button onclick="MarcDialogs.close()"&gt;Accept&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="dialog-custom3" class="dialog"&gt;
+	&lt;input type="checkbox" id="checkbox0" checked /&gt;&lt;label for="checkbox0"&gt;#tag1&lt;/label&gt;&lt;br/&gt;
+	&lt;input type="checkbox" id="checkbox1" checked /&gt;&lt;label for="checkbox1"&gt;#tag2&lt;/label&gt;&lt;br/&gt;
+	&lt;input type="checkbox" id="checkbox2" /&gt;&lt;label for="checkbox2"&gt;#tag3&lt;/label&gt;&lt;br/&gt;
+	&lt;!-- ... --&gt;
+
+	&lt;div class="buttons"&gt;
+		&lt;button onclick="/* ... */ MarcDialogs.close()"&gt;Accept&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+	<div class="js"><h4>JS</h4>
+	<pre><code>MarcDialogs.open('custom2');</code></pre>
+	</div>
+</div>
+<div class="result">
+	<h4>Result</h4>
+	<div>Try it out: <button onclick="MarcDialogs.open('custom2');">Open dialog</button></div>
+</div>
+
+
+
+<div id="dialog-custom2" class="dialog" style="max-width:300px">
+	You can stack dialogs. Try to edit tags.<br/>
+	<label for="item">Item</label>
+	<input type="text" id="item" class="full-width" />
+	Tags<br/>
+	<span id="tags">#tag1 #tag2</span> <span onclick="MarcDialogs.open('custom3')" style="cursor:pointer;text-decoration:underline;font-size:80%">Edit</span>
+
+	
+	<div class="buttons">
+		<button class="orange" onclick="MarcDialogs.close()">Accept</button>
+	</div>
+</div>
+
+
+
+<div id="dialog-custom3" class="dialog" style="max-width:200px">
+	<input type="checkbox" id="checkbox0" checked /><label for="checkbox0">#tag1</label><br/>
+	<input type="checkbox" id="checkbox1" checked /><label for="checkbox1">#tag2</label><br/>
+	<input type="checkbox" id="checkbox2" /><label for="checkbox2">#tag3</label><br/>
+	<input type="checkbox" id="checkbox3" /><label for="checkbox3">#tag4</label><br/>
+	<input type="checkbox" id="checkbox4" /><label for="checkbox4">#tag5</label><br/>
+	<input type="checkbox" id="checkbox5" /><label for="checkbox5">#tag6</label>
+
+	<div class="buttons">
+		<button class="orange" onclick="document.getElementById('tags').innerHTML='';for(var i=0;i<6;i++){if(document.getElementById('checkbox'+i).checked)document.getElementById('tags').innerHTML+='#tag'+(i+1)+' ';}MarcDialogs.close()">Accept</button>
+	</div>
+</div>
+
+
+</div>
+
+
+
+<!-- FOOTER -->
+<footer class="width">
+	Made by <a href="http://www.marcrobledo.com">Marc Robledo</a>.
+	Follow at: <a href="https://twitter.com/marc_robledo">@marc_robledo</a> &amp; <a href="https://github.com/marcrobledo">GitHub</a>.
+</footer>
+</body>
+</html>
